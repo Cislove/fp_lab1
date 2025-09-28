@@ -1,8 +1,6 @@
 name: fp_lab1_ci
 
-on:
-  push:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   setup:
@@ -14,73 +12,102 @@ jobs:
         with:
           elixir-version: 1.18
           otp-version: 27
-      - name: Install Hex & Rebar
-        run: |
-          mix local.hex --force
-          mix local.rebar --force
-  
-  format_task_10:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - name: Check format (sum_of_primes)
+      - name: Install dependencies
+        run: mix local.hex --force && mix local.rebar --force && mix deps.get
+
+        
+      - name: Check format (task_10)
         run: |
           cd task_10/sum_of_primes
-          mix deps.get
           mix format --check-formatted
-  
-  lint_task_10:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - name: Lint with Credo (sum_of_primes)
+
+      - name: Lint (task_10)
         run: |
           cd task_10/sum_of_primes
-          mix deps.get
           mix credo --strict
-  
-  test_task_10:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - name: Rung test (sum_of_primes)
+
+      - name: Test (task_10)
         run: |
           cd task_10/sum_of_primes
-          mix deps.get
           mix test
 
-  format_task_20:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - name: Check format (factorial_digit_sum)
+      - name: Check format (task_20)
         run: |
           cd task_20/factorial_digit_sum
-          mix deps.get
           mix format --check-formatted
-  
-  lint_task_20:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - name: Lint with Credo (factorial_digit_sum)
+
+      - name: Lint (task_20)
         run: |
           cd task_20/factorial_digit_sum
-          mix deps.get
           mix credo --strict
-  
-  test_task_20:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      - name: Rung test (factorial_digit_sum)
+
+      - name: Test (task_20)
         run: |
           cd task_20/factorial_digit_sum
-          mix deps.get
           mix test
+  
+  # format_task_10:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Check format (sum_of_primes)
+  #       run: |
+  #         cd task_10/sum_of_primes
+  #         mix deps.get
+  #         mix format --check-formatted
+  
+  # lint_task_10:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Lint with Credo (sum_of_primes)
+  #       run: |
+  #         cd task_10/sum_of_primes
+  #         mix deps.get
+  #         mix credo --strict
+  
+  # test_task_10:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Rung test (sum_of_primes)
+  #       run: |
+  #         cd task_10/sum_of_primes
+  #         mix deps.get
+  #         mix test
+
+  # format_task_20:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Check format (factorial_digit_sum)
+  #       run: |
+  #         cd task_20/factorial_digit_sum
+  #         mix deps.get
+  #         mix format --check-formatted
+  
+  # lint_task_20:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Lint with Credo (factorial_digit_sum)
+  #       run: |
+  #         cd task_20/factorial_digit_sum
+  #         mix deps.get
+  #         mix credo --strict
+  
+  # test_task_20:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Rung test (factorial_digit_sum)
+  #       run: |
+  #         cd task_20/factorial_digit_sum
+  #         mix deps.get
+  #         mix test
