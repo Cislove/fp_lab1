@@ -1,4 +1,4 @@
-defmodule Monolith.TailRecursion do
+defmodule FacDigitSum.Monolith.TailRecursion do
   @moduledoc """
   Вычисление суммы цифр факториала через хвостовую рекурсию
   """
@@ -12,7 +12,7 @@ defmodule Monolith.TailRecursion do
   defp factorial(acc, n) when n > 0, do: factorial(acc * n, n - 1)
 end
 
-defmodule Monolith.Recursion do
+defmodule FacDigitSum.Monolith.Recursion do
   @moduledoc """
   Вычисление суммы цифр факториала через рекурсию
   """
