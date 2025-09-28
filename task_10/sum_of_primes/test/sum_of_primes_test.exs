@@ -1,9 +1,9 @@
 defmodule SumOfPrimesTest do
   use ExUnit.Case, async: true
-  alias SumOfPrimes.Monolith
-  alias SumOfPrimes.Module
-  alias SumOfPrimes.Map
   alias SumOfPrimes.Lazy
+  alias SumOfPrimes.Map
+  alias SumOfPrimes.Module
+  alias SumOfPrimes.Monolith
 
   @answer 142_913_828_922
   @value 2_000_000

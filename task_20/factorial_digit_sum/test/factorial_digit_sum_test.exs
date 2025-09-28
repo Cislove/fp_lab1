@@ -2,8 +2,8 @@ defmodule FactorialDigitSumTest do
   use ExUnit.Case, async: true
   alias FacDigitSum.Lazy
   alias FacDigitSum.Map
-  alias FacDigitSum.Monolith
   alias FacDigitSum.Module
+  alias FacDigitSum.Monolith
 
   @value 100
   @answer 648
