@@ -2,7 +2,7 @@
 **Выполнил**: Рахимов Ильнар (409442)
 ***
 ## Вариант 10
-![alt text](image.png)
+![alt text](task_10/image.png)
 ### Монолитная реализация
 #### Рекурсия
 ```elixir
@@ -136,7 +136,7 @@ public class SumOfPrimes{
 }
 ```
 ## Вариант 20
-![alt text](image.png)
+![alt text](task_20/image.png)
 ### Монолитная реализация
 #### Рекурсия
 ```elixir
