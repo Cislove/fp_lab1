@@ -18,7 +18,8 @@ defmodule SumOfPrimes.Monolith.Recursion do
 end
 
 defmodule SumOfPrimes.Monolith.TailRecursion do
-	alias SumOfPrimes.Utils
+  alias SumOfPrimes.Utils
+
   @moduledoc """
   Нахождение суммы простых через хвостовую рекурсию
   функция prime?, реализованная через хвостовую рекурсию, взята из модуля Utils для избежания дублирования кода
@@ -29,6 +30,4 @@ defmodule SumOfPrimes.Monolith.TailRecursion do
   defp sum_of_primes(n, acc) do
     if Utils.prime?(n), do: sum_of_primes(n - 1, acc + n), else: sum_of_primes(n - 1, acc)
   end
-
-
 end

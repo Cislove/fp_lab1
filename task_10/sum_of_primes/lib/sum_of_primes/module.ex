@@ -1,5 +1,6 @@
 defmodule SumOfPrimes.Module do
   alias SumOfPrimes.Utils
+
   @moduledoc """
   Нахождение суммы простых через модульное решение
   """
