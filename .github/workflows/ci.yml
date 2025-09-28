@@ -13,37 +13,43 @@ jobs:
           elixir-version: 1.18
           otp-version: 27
       - name: Install dependencies
-        run: mix local.hex --force && mix local.rebar --force && mix deps.get
+        run: mix local.hex --force && mix local.rebar --force
 
-        
+
       - name: Check format (task_10)
         run: |
           cd task_10/sum_of_primes
+          mix deps.get
           mix format --check-formatted
 
       - name: Lint (task_10)
         run: |
           cd task_10/sum_of_primes
+          mix deps.get
           mix credo --strict
 
       - name: Test (task_10)
         run: |
           cd task_10/sum_of_primes
+          mix deps.get
           mix test
 
       - name: Check format (task_20)
         run: |
           cd task_20/factorial_digit_sum
+          mix deps.get
           mix format --check-formatted
 
       - name: Lint (task_20)
         run: |
           cd task_20/factorial_digit_sum
+          mix deps.get
           mix credo --strict
 
       - name: Test (task_20)
         run: |
           cd task_20/factorial_digit_sum
+          mix deps.get
           mix test
   
   # format_task_10:
